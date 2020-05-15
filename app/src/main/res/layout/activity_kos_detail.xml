@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp"
+    tools:context=".KosDetail">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/kos_name"
+            android:textSize="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="[NAME]"
+            />
+
+        <TextView
+            android:id="@+id/kos_facility"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="[FACILITY]"
+            />
+
+        <TextView
+            android:id="@+id/kos_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="[PRICE]"/>
+
+        <TextView
+            android:id="@+id/kos_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="[ADDRESS]"
+            />
+
+        <TextView
+            android:id="@+id/kos_latitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="[LATITUDE]"
+            />
+
+        <TextView
+            android:id="@+id/kos_longitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:text="[LONGITUDE]"
+            />
+
+        <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/kos_img"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:paddingBottom="10dp"
+            />
+
+        <Button
+            android:id="@+id/kos_book"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="book"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/tanggal"
+            android:layout_width="0px"
+            android:layout_height="0px"/>
+
+    </LinearLayout>
+</ScrollView>
