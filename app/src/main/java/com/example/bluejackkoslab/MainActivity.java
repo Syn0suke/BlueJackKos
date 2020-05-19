@@ -9,8 +9,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TabHost;
 import android.widget.Toast;
+
+import com.example.bluejackkoslab.helper.DatabaseHelperLogin;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -55,7 +56,8 @@ public class MainActivity extends AppCompatActivity {
         String Username = username.getText().toString().trim();
         String Password = password.getText().toString().trim();
         Boolean isDataExist = dblog.checkUsernameAndPass(Username,Password);
-
+        editor.putString("id", dblog.getId(Username,Password));
+        editor.commit();
 
         if (Username.length() == 0 && Password.length() == 0) {
             username.requestFocus();

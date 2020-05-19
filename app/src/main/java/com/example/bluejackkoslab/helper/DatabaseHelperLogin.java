@@ -1,4 +1,4 @@
-package com.example.bluejackkoslab;
+package com.example.bluejackkoslab.helper;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -115,6 +115,18 @@ public class DatabaseHelperLogin extends SQLiteOpenHelper {
         } else{
             cursor.close();
             return false;
+        }
+    }
+
+    public String getId(String username, String password) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("Select _id from "+TABLE_NAME+" where user_name=? and user_pass=?" ,new String[]{username,password});
+        if (cursor.getCount() > 0) {
+            cursor.moveToNext();
+            return cursor.getString(cursor.getColumnIndex(COLUMN_ID));
+        } else {
+            cursor.close();
+            return null;
         }
     }
 }

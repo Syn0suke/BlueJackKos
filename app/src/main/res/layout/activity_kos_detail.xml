@@ -15,7 +15,7 @@
 
         <TextView
             android:id="@+id/kos_name"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
@@ -65,11 +65,18 @@
             />
 
         <Button
-            android:id="@+id/kos_book"
+            android:id="@+id/view_location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="book"
+            android:text="View Location"
             android:layout_gravity="center"/>
+
+        <Button
+        android:id="@+id/kos_book"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="book"
+        android:layout_gravity="center"/>
 
         <TextView
             android:id="@+id/tanggal"

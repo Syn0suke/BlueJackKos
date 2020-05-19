@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -18,7 +17,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
+import com.example.bluejackkoslab.helper.DatabaseHelperLogin;
+
 import java.util.Calendar;
 
 public class Register extends AppCompatActivity {
@@ -108,7 +108,7 @@ public class Register extends AppCompatActivity {
             username.setError("Username must be 3 - 25 characters and contain minimal 1 number and alphabetic");
         } else if (!Phonenumber.matches("^0?[0-9].{10,12}$")) {
             phonenumber.requestFocus();
-            phonenumber.setError("Enter a valid phone number (Start with 0)");
+            phonenumber.setError("Enter a valid phone number (Start with 0 , 10 - 12 length)");
         } else if (!Password.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{7,}$")) {
             password.requestFocus();
             password.setError("Password must be longer than 6 characters and password must contain at least 1 lowercase letter, 1 uppercase letter and 1 digit");
