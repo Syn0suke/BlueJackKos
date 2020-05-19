@@ -31,10 +31,10 @@ public class KosDetail extends AppCompatActivity {
     private TextView kosName, kosPrice, kosFacility, kosAddress, kosLongitude, kosLatitude,tanggal;
     private NetworkImageView kosImage;
     private ImageLoader imageLoader;
-    private Button booking;
+    private Button booking,location;
     DatePickerDialog dialog;
-    SharedPreferences sharedPreferences;
-    SharedPreferences.Editor editor;
+    SharedPreferences sharedPreferences, locationPreferences;
+    SharedPreferences.Editor editor, leditor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +48,7 @@ public class KosDetail extends AppCompatActivity {
 
         dbook = new DatabaseHelperBooking(KosDetail.this);
         booking = findViewById(R.id.kos_book);
+        location = findViewById(R.id.view_location);
         kosName = findViewById(R.id.kos_name);
         kosPrice = findViewById(R.id.kos_price);
         tanggal = findViewById(R.id.tanggal);
@@ -57,7 +58,22 @@ public class KosDetail extends AppCompatActivity {
         kosLongitude = findViewById(R.id.kos_longitude);
         kosImage = findViewById(R.id.kos_img);
         sharedPreferences = getSharedPreferences("userdata", Context.MODE_PRIVATE);
+        locationPreferences = getSharedPreferences("locationdata", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
+        leditor = locationPreferences.edit();
+
+        location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String Kos_Longitude = kosLongitude.getText().toString().trim();
+                String Kos_Latitude = kosLatitude.getText().toString().trim();
+                leditor.putString("longitude",Kos_Longitude);
+                leditor.putString("latitude",Kos_Latitude);
+                leditor.commit();
+                Intent intent = new Intent(KosDetail.this,Location.class);
+                startActivity(intent);
+            }
+        });
 
         booking.setOnClickListener(new View.OnClickListener() {
             @Override
