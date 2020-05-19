@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/booking_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:text="[BOOKING ID]"/>
+
+    <TextView
+        android:id="@+id/user_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="[USER ID]"/>
+
+    <TextView
+        android:id="@+id/kos_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="[NAME]"
+        />
+
+    <TextView
+        android:id="@+id/kos_facility"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="[FACILITY]"
+        />
+
+    <TextView
+        android:id="@+id/kos_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="[PRICE]"/>
+
+    <TextView
+        android:id="@+id/kos_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="[ADDRESS]"
+        />
+
+    <TextView
+        android:id="@+id/kos_latitude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="[LATITUDE]"
+        />
+
+    <TextView
+        android:id="@+id/kos_longitude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="[LONGITUDE]"
+        />
+
+    <TextView
+        android:id="@+id/booking_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="[DATE]"/>
+
+</LinearLayout>
