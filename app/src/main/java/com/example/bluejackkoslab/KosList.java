@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -32,6 +34,8 @@ public class KosList extends AppCompatActivity {
     private List<Item> array = new ArrayList<Item>();
     private ListView listView;
     private CustomAdapter adapter;
+    SharedPreferences loginPreferences;
+    SharedPreferences.Editor loginEditor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,8 @@ public class KosList extends AppCompatActivity {
         setContentView(R.layout.activity_kos_list);
 
         listView = (ListView) findViewById(R.id.lv_list);
+        loginPreferences = getSharedPreferences("logindata", Context.MODE_PRIVATE);
+        loginEditor = loginPreferences.edit();
         adapter = new CustomAdapter(this,0,array);
         listView.setAdapter(adapter);
 
@@ -116,6 +122,8 @@ public class KosList extends AppCompatActivity {
 
             case R.id.logout:
                 intent = new Intent(KosList.this, MainActivity.class);
+                loginEditor.clear();
+                loginEditor.commit();
                 startActivity(intent);
                 finish();
                 break;

@@ -20,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
     private Button login;
     private Button register;
     DatabaseHelperLogin dblog;
-    SharedPreferences sharedPreferences;
-    SharedPreferences.Editor editor;
+    SharedPreferences sharedPreferences, loginPreferences;
+    SharedPreferences.Editor editor, loginEditor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         register = (Button) findViewById(R.id.btn_register);
         sharedPreferences = getSharedPreferences("userdata", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
+        loginPreferences = getSharedPreferences("logindata",Context.MODE_PRIVATE);
+        loginEditor = loginPreferences.edit();
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,8 +60,16 @@ public class MainActivity extends AppCompatActivity {
         Boolean isDataExist = dblog.checkUsernameAndPass(Username,Password);
         editor.putString("id", dblog.getId(Username,Password));
         editor.commit();
+        loginEditor.putString("username",Username);
+        loginEditor.commit();
 
-        if (Username.length() == 0 && Password.length() == 0) {
+        if(loginPreferences.getString("username",null).length() != 0) // TODO: cek validasi
+        {
+            Intent intent = new Intent(MainActivity.this, KosList.class);
+            startActivity(intent);
+            finish();
+        }
+         else if (Username.length() == 0 && Password.length() == 0) {
             username.requestFocus();
             username.setError("FIELD CANNOT BE EMPTY");
             password.requestFocus();

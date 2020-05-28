@@ -65,9 +65,8 @@ public class Register extends AppCompatActivity {
         DOB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatePickerDialog datePickerDialog = new DatePickerDialog(Register.this, android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                DatePickerDialog datePickerDialog = new DatePickerDialog(Register.this, android.R.style.Theme_Material_Dialog_MinWidth,
                         setListener, year, month, day);
-                datePickerDialog.getWindow().setBackgroundDrawable((new ColorDrawable(Color.TRANSPARENT)));
                 datePickerDialog.show();
             }
         });
@@ -106,7 +105,7 @@ public class Register extends AppCompatActivity {
         }else if (!Username.matches("^(?=.*[0-9])(?=.*[a-zA-Z])(?!.*[_.]{2})[a-zA-Z0-9_.].{3,25}$")) {
             username.requestFocus();
             username.setError("Username must be 3 - 25 characters and contain minimal 1 number and alphabetic");
-        } else if (!Phonenumber.matches("^0?[0-9].{10,12}$")) {
+        } else if (!Phonenumber.matches("^0?[0-9].{10,12}$")) { // TODO : cek regex
             phonenumber.requestFocus();
             phonenumber.setError("Enter a valid phone number (Start with 0 , 10 - 12 length)");
         } else if (!Password.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{7,}$")) {
